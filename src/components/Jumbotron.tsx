@@ -30,7 +30,7 @@ const Jumbotron = () => {
           </a>
         </li>
       </ul>
-      <img src="/globe.svg" alt="iphone" className="iphone-img" />
+      {/* <img src="/globe.svg" alt="iphone" className="iphone-img" /> */}
     </div>
   );
 };
