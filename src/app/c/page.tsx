@@ -24,20 +24,32 @@ import { useEffect, useRef, useState } from "react";
 // addEffect((t) => lenis.raf(t));
 
 export default function Home() {
-  const lenis = useLenis((lenis) => {
-    // called every scroll
-    // console.log(lenis);
-  });
+  const lenisRef = useRef<any>(null);
+  const lenis = useLenis();
+  console.log(lenis);
 
   useEffect(() => {
-    if (lenis) {
-      addEffect((t) => lenis.raf(t));
-    }
-  }, [lenis]);
+    // if (lenis) {
+    addEffect((t) => {
+      console.log("t", t);
+      return lenisRef.current?.lenis?.raf(t);
+    });
+    // }
+
+    // function update(time: number) {
+    //   console.log("time", time);
+    //   console.log("lenisRef", lenisRef.current);
+    //   lenisRef.current?.lenis?.raf(time);
+    // }
+
+    // const rafId = requestAnimationFrame(update);
+
+    // return () => cancelAnimationFrame(rafId);
+  }, []);
 
   return (
     <>
-      <ReactLenis root>
+      <ReactLenis root options={{ autoRaf: false }} ref={lenisRef}>
         <div style={{ position: "relative", width: "100%", height: "100%" }}>
           {/** Regular HTML with canvas bits mixed into it (<View>) */}
           <div className="text">
