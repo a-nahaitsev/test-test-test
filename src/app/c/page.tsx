@@ -49,7 +49,11 @@ export default function Home() {
 
   return (
     <>
-      <ReactLenis root options={{ autoRaf: false }} ref={lenisRef}>
+      <ReactLenis
+        root
+        options={{ autoRaf: false, syncTouch: true }}
+        ref={lenisRef}
+      >
         <div style={{ position: "relative", width: "100%", height: "100%" }}>
           {/** Regular HTML with canvas bits mixed into it (<View>) */}
           <div className="text">
