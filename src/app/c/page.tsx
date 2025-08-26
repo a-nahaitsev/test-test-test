@@ -14,7 +14,7 @@ import {
 import { addEffect, Canvas } from "@react-three/fiber";
 // import Lenis from "lenis";
 import ReactLenis, { useLenis } from "lenis/react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // @ts-ignore
 // @ts-ignore
@@ -26,109 +26,117 @@ import { useRef, useState } from "react";
 export default function Home() {
   const lenis = useLenis((lenis) => {
     // called every scroll
-    console.log(lenis);
+    // console.log(lenis);
   });
+
+  useEffect(() => {
+    if (lenis) {
+      addEffect((t) => lenis.raf(t));
+    }
+  }, [lenis]);
+
   return (
     <>
-      <ReactLenis root />
-      <div style={{ position: "relative", width: "100%", height: "100%" }}>
-        {/** Regular HTML with canvas bits mixed into it (<View>) */}
-        <div className="text">
-          Work on{" "}
-          <Link
-            href="https://github.com/pmndrs/react-three-fiber/releases/tag/v8.0.0"
-            text="version 8"
-          >
-            <Common color="lightpink" />
-            <Center>
-              <Target scale={1.5} />
-            </Center>
-          </Link>{" "}
-          has begun 3 Sep 2021.
-          <View className="view translateX">
-            <Common color="lightpink" />
-            <PivotControls lineWidth={3} depthTest={false} scale={2}>
-              <Soda scale={6} position={[0, -1.6, 0]} />
-            </PivotControls>
-            <OrbitControls makeDefault />
-          </View>
-          This is perhaps the biggest update to Fiber yet.
-          <View
-            className="view scale"
+      <ReactLenis root>
+        <div style={{ position: "relative", width: "100%", height: "100%" }}>
+          {/** Regular HTML with canvas bits mixed into it (<View>) */}
+          <div className="text">
+            Work on{" "}
+            <Link
+              href="https://github.com/pmndrs/react-three-fiber/releases/tag/v8.0.0"
+              text="version 8"
+            >
+              <Common color="lightpink" />
+              <Center>
+                <Target scale={1.5} />
+              </Center>
+            </Link>{" "}
+            has begun 3 Sep 2021.
+            <View className="view translateX">
+              <Common color="lightpink" />
+              <PivotControls lineWidth={3} depthTest={false} scale={2}>
+                <Soda scale={6} position={[0, -1.6, 0]} />
+              </PivotControls>
+              <OrbitControls makeDefault />
+            </View>
+            This is perhaps the biggest update to Fiber yet.
+            <View
+              className="view scale"
+              style={{
+                height: 300,
+                width: 400,
+                display: "inline-block",
+                overflow: "hidden",
+                margin: "0.2em",
+              }}
+            >
+              <Common color="lightblue" />
+              <Apple position={[0, -1, 0]} scale={14} />
+              <OrbitControls makeDefault />
+            </View>
+            We've tried our best to keep breaking-changes to a minimum,
+            <View
+              className="view translateY"
+              style={{
+                height: 200,
+                width: 400,
+                display: "inline-block",
+                overflow: "hidden",
+                margin: "0.2em",
+              }}
+            >
+              <Common color="lightgreen" />
+              <Duck scale={2} position={[0, -1.6, 0]} />
+              <CameraShake intensity={2} />
+            </View>
+            they mostly affect rarely used api's like attach.
+            <View
+              className="view scale"
+              style={{
+                height: 200,
+                width: 400,
+                display: "inline-block",
+                overflow: "hidden",
+                margin: "0.2em",
+              }}
+            >
+              <Common color="peachpuff" />
+              <Candy scale={3} />
+            </View>
+            This release brings a ton of performance related fixes,
+            <View
+              className="view translateX"
+              style={{
+                height: 200,
+                width: 400,
+                display: "inline-block",
+                overflow: "hidden",
+                margin: "0.2em",
+              }}
+            >
+              <Common color="orange" />
+              <Flash scale={3} />
+            </View>
+            but also includes some new and ground-breaking features.
+          </div>
+          {/** Fixed fullscreen canvas on top of everything, events tied to index root */}
+          <Canvas
             style={{
-              height: 300,
-              width: 400,
-              display: "inline-block",
+              position: "fixed",
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
               overflow: "hidden",
-              margin: "0.2em",
+              pointerEvents: "none",
             }}
+            // eventSource={document.getElementById("root") }
           >
-            <Common color="lightblue" />
-            <Apple position={[0, -1, 0]} scale={14} />
-            <OrbitControls makeDefault />
-          </View>
-          We've tried our best to keep breaking-changes to a minimum,
-          <View
-            className="view translateY"
-            style={{
-              height: 200,
-              width: 400,
-              display: "inline-block",
-              overflow: "hidden",
-              margin: "0.2em",
-            }}
-          >
-            <Common color="lightgreen" />
-            <Duck scale={2} position={[0, -1.6, 0]} />
-            <CameraShake intensity={2} />
-          </View>
-          they mostly affect rarely used api's like attach.
-          <View
-            className="view scale"
-            style={{
-              height: 200,
-              width: 400,
-              display: "inline-block",
-              overflow: "hidden",
-              margin: "0.2em",
-            }}
-          >
-            <Common color="peachpuff" />
-            <Candy scale={3} />
-          </View>
-          This release brings a ton of performance related fixes,
-          <View
-            className="view translateX"
-            style={{
-              height: 200,
-              width: 400,
-              display: "inline-block",
-              overflow: "hidden",
-              margin: "0.2em",
-            }}
-          >
-            <Common color="orange" />
-            <Flash scale={3} />
-          </View>
-          but also includes some new and ground-breaking features.
+            <View.Port />
+            <Preload all />
+          </Canvas>
         </div>
-        {/** Fixed fullscreen canvas on top of everything, events tied to index root */}
-        <Canvas
-          style={{
-            position: "fixed",
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            overflow: "hidden",
-            pointerEvents: "none",
-          }}
-          // eventSource={document.getElementById("root") }
-        >
-          <View.Port />
-          <Preload all />
-        </Canvas>
-      </div>
+      </ReactLenis>
     </>
   );
 }
