@@ -1,6 +1,6 @@
 "use client";
 
-import { Environment, useGLTF } from "@react-three/drei";
+import { Environment, useGLTF, View } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import React, { useRef, Suspense, useEffect } from "react";
 import { gsap } from "gsap";
@@ -56,7 +56,7 @@ const ViewCanvas = ({ style }: { style: React.CSSProperties }) => {
       {/* <ambientLight intensity={0.5} />
       <directionalLight position={[10, 10, 5]} intensity={1} /> */}
       <Suspense fallback={null}>
-        <Model />
+        <View.Port />
       </Suspense>
     </Canvas>
   );
