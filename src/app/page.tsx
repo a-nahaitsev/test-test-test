@@ -2,16 +2,12 @@ import Nav from "../components/Nav";
 import Jumbotron from "../components/Jumbotron";
 import SoundSection from "@/components/SoundSection";
 import DisplaySection from "@/components/DisplaySection";
-import ViewCanvas from "@/components/ViewCanvas";
 import ScrollSmootherWrapper from "@/components/ScrollSmootherWrapper";
+import ViewCanvas from "@/components/ViewCanvas";
 
 export default function Home() {
   return (
-    <ScrollSmootherWrapper>
-      <Nav />
-      <Jumbotron />
-      <SoundSection />
-      <DisplaySection />
+    <>
       <ViewCanvas
         style={{
           position: "fixed",
@@ -21,6 +17,12 @@ export default function Home() {
           height: "100vh",
         }}
       />
-    </ScrollSmootherWrapper>
+      <ScrollSmootherWrapper>
+        <Nav />
+        <Jumbotron />
+        <SoundSection />
+        <DisplaySection />
+      </ScrollSmootherWrapper>
+    </>
   );
 }

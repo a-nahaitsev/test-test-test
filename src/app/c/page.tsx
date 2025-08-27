@@ -12,48 +12,31 @@ import {
   View,
 } from "@react-three/drei";
 import { addEffect, Canvas } from "@react-three/fiber";
-// import Lenis from "lenis";
+import Nav from "@/components/Nav";
 import ReactLenis, { useLenis } from "lenis/react";
 import { useEffect, useRef, useState } from "react";
 
 // @ts-ignore
 // @ts-ignore
 
-// const lenis = new Lenis({ syncTouch: true });
-// // Integrate into fibers own raf loop instead of opening another
-// addEffect((t) => lenis.raf(t));
-
 export default function Home() {
   const lenisRef = useRef<any>(null);
   const lenis = useLenis();
-  console.log(lenis);
 
   useEffect(() => {
-    // if (lenis) {
     addEffect((t) => {
-      console.log("t", t);
       return lenisRef.current?.lenis?.raf(t);
     });
-    // }
-
-    // function update(time: number) {
-    //   console.log("time", time);
-    //   console.log("lenisRef", lenisRef.current);
-    //   lenisRef.current?.lenis?.raf(time);
-    // }
-
-    // const rafId = requestAnimationFrame(update);
-
-    // return () => cancelAnimationFrame(rafId);
   }, []);
 
   return (
     <>
       <ReactLenis
         root
-        options={{ autoRaf: false }}
+        options={{ autoRaf: false, syncTouch: true }}
         ref={lenisRef}
       >
+        <Nav />
         <div style={{ position: "relative", width: "100%", height: "100%" }}>
           {/** Regular HTML with canvas bits mixed into it (<View>) */}
           <div className="text">

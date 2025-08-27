@@ -7,10 +7,6 @@ import Jumbotron from "@/components/Jumbotron";
 export default function Home() {
   return (
     <>
-      <Nav />
-      <Jumbotron />
-      <SoundSection />
-      <DisplaySection />
       <ViewCanvas
         style={{
           position: "fixed",
@@ -20,6 +16,10 @@ export default function Home() {
           height: "100vh",
         }}
       />
+      <Nav />
+      <Jumbotron />
+      <SoundSection />
+      <DisplaySection />
     </>
   );
 }

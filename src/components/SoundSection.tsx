@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
-import { View } from "@react-three/drei";
+import { Environment, View } from "@react-three/drei";
 import { useGLTF } from "@react-three/drei";
 import { gsap } from "gsap";
 import * as THREE from "three";
@@ -12,12 +12,11 @@ const SoundModel = () => {
 
   useEffect(() => {
     if (modelRef.current) {
-      // Create a continuous rotation animation around Y axis
       gsap.to(modelRef.current.rotation, {
-        y: Math.PI * 2, // Full 360 degree rotation
+        y: Math.PI * 2,
         duration: 4,
         ease: "none",
-        repeat: -1, // Infinite repeat
+        repeat: -1,
       });
     }
   }, []);
@@ -35,7 +34,7 @@ const SoundModel = () => {
     <primitive
       ref={modelRef}
       object={scene}
-      position={[0, 0, 0]}
+      position={[20, -50, 0]}
       rotation={[0, 0, 0]}
     />
   );
@@ -62,7 +61,6 @@ const SoundSection = () => {
         </div>
       </div>
 
-      {/* 3D Model View positioned absolutely in center */}
       <View
         style={{
           position: "absolute",
@@ -74,6 +72,7 @@ const SoundSection = () => {
           zIndex: 10,
         }}
       >
+        <Environment preset="apartment" />
         <SoundModel />
       </View>
     </div>

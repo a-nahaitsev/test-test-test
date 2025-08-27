@@ -7,20 +7,22 @@ import ScrollSmootherWrapper from "@/components/ScrollSmootherWrapper";
 
 export default function Home() {
   return (
-    <ScrollSmootherWrapper>
-      <Nav />
-      <Jumbotron />
-      <SoundSection />
-      <DisplaySection />
+    <>
       <ViewCanvas
         style={{
-          position: "absolute",
+          position: "fixed",
           top: 0,
           left: 0,
           width: "100vw",
           height: "100vh",
         }}
       />
-    </ScrollSmootherWrapper>
+      <ScrollSmootherWrapper>
+        <Nav />
+        <Jumbotron />
+        <SoundSection />
+        <DisplaySection />
+      </ScrollSmootherWrapper>
+    </>
   );
 }
