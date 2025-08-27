@@ -25,6 +25,11 @@ const Nav = () => {
               C
             </a>
           </li>
+          <li>
+            <a href="/d" className="link-styled">
+              D
+            </a>
+          </li>
         </ul>
       </div>
     </nav>

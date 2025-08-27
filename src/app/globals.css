@@ -160,7 +160,7 @@ nav .list-styled {
   height: 44px;
   display: flex;
   list-style: none;
-  gap: 10px;
+  gap: 30px;
   align-items: center;
   justify-content: center;
 }
@@ -432,7 +432,7 @@ nav .link-styled {
   text-align: left;
   font-size: 7em;
   word-break: break-word;
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 0;
   width: 100%;
