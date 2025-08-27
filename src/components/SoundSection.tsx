@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
-import { Environment, View } from "@react-three/drei";
+import { Environment, PerspectiveCamera, View } from "@react-three/drei";
 import { useGLTF } from "@react-three/drei";
 import { gsap } from "gsap";
 import * as THREE from "three";
@@ -72,6 +72,14 @@ const SoundSection = () => {
           zIndex: 10,
         }}
       >
+        <PerspectiveCamera
+          makeDefault
+          position={[0, 0, 100]}
+          fov={80}
+          aspect={1}
+          near={0.1}
+          scale={[0.5, 0.5, 0.5]}
+        />
         <Environment preset="apartment" />
         <SoundModel />
       </View>

@@ -15,6 +15,9 @@ import { Canvas } from "@react-three/fiber";
 import Nav from "@/components/Nav";
 import { useRef, useState } from "react";
 import ScrollSmootherWrapper from "@/components/ScrollSmootherWrapper";
+import EggBlock from "@/components/EggBlock";
+import PalletRackingBlock from "@/components/PalletRackingBlock/PalletRackingBlock";
+import SoundSection from "@/components/SoundSection";
 
 // @ts-ignore
 // @ts-ignore
@@ -112,6 +115,9 @@ export default function Home() {
             </View>
             but also includes some new and ground-breaking features.
           </div>
+          <EggBlock />
+          <PalletRackingBlock />
+          <SoundSection />
         </div>
       </ScrollSmootherWrapper>
       {/** Fixed fullscreen canvas on top of everything, events tied to index root */}

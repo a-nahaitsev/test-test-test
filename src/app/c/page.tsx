@@ -15,13 +15,15 @@ import { addEffect, Canvas } from "@react-three/fiber";
 import Nav from "@/components/Nav";
 import ReactLenis, { useLenis } from "lenis/react";
 import { useEffect, useRef, useState } from "react";
+import EggBlock from "@/components/EggBlock";
+import PalletRackingBlock from "@/components/PalletRackingBlock/PalletRackingBlock";
+import SoundSection from "@/components/SoundSection";
 
 // @ts-ignore
 // @ts-ignore
 
 export default function Home() {
   const lenisRef = useRef<any>(null);
-  const lenis = useLenis();
 
   useEffect(() => {
     addEffect((t) => {
@@ -118,6 +120,10 @@ export default function Home() {
             </View>
             but also includes some new and ground-breaking features.
           </div>
+          <EggBlock />
+          <PalletRackingBlock />
+          <SoundSection />
+
           {/** Fixed fullscreen canvas on top of everything, events tied to index root */}
           <Canvas
             style={{
