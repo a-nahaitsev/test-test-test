@@ -61,8 +61,6 @@ const PalletRackingView = () => {
   // #region SCROLL TRIGGER FOR INITIAL ANIMATION
   useGSAP(
     () => {
-      console.log("animationTriggered", animationTriggered);
-      console.log("cameraControls", cameraControls);
       if (animationTriggered || !cameraControls) return;
 
       const trigger = gsap.timeline({
@@ -278,7 +276,7 @@ const PalletRackingView = () => {
       viewWrapperRef.current,
       {
         width: "100%",
-        height: "50lvh",
+        // height: "50lvh",
         duration: 1,
         onComplete: () => {
           setIsAnimating(false);
@@ -436,12 +434,13 @@ const PalletRackingView = () => {
   // #endregion
 
   return (
-    <div ref={viewWrapperRef} className="w-full h-full">
+    <div ref={viewWrapperRef} className="relative w-full h-full">
       <View
         track={viewWrapperRef as RefObject<HTMLElement>}
         style={{
           height: "100%",
           width: "100%",
+          position: "relative",
         }}
       >
         <PalletRackingEnvironment

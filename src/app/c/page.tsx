@@ -18,15 +18,18 @@ import { useEffect, useRef, useState } from "react";
 import EggBlock from "@/components/EggBlock";
 import PalletRackingBlock from "@/components/PalletRackingBlock/PalletRackingBlock";
 import SoundSection from "@/components/SoundSection";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import gsap from "gsap";
 
 // @ts-ignore
-// @ts-ignore
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const lenisRef = useRef<any>(null);
 
   useEffect(() => {
     addEffect((t) => {
+      ScrollTrigger.update();
       return lenisRef.current?.lenis?.raf(t);
     });
   }, []);
