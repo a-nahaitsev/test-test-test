@@ -51,7 +51,7 @@ export default function Home() {
     <>
       <ReactLenis
         root
-        options={{ autoRaf: false, syncTouch: true }}
+        options={{ autoRaf: false }}
         ref={lenisRef}
       >
         <div style={{ position: "relative", width: "100%", height: "100%" }}>
