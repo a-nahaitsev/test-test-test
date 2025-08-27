@@ -50,7 +50,7 @@ const PalletRackingView = () => {
   } | null>(null);
   const [environmentHasLoaded, setEnvironmentHasLoaded] = useState(false);
   const [animationTriggered, setAnimationTriggered] = useState(false);
-  const [isCameraMoved, setIsCameraMoved] = useState(false);
+  const [isCameraMoved, setIsCameraMoved] = useState(true);
   // #endregion
 
   // #region REFS
@@ -184,13 +184,13 @@ const PalletRackingView = () => {
   }, [cameraControls, viewWrapperRef.current]);
   // #endregion
 
-  useEffect(() => {
-    if (!cameraControls) return;
+  // useEffect(() => {
+  //   if (!cameraControls) return;
 
-    // TODO: redo this
-    cameraControls.moveTo(0, 2.65, 0, false);
-    setIsCameraMoved(true);
-  }, [cameraControls]);
+  //   // TODO: redo this
+  //   cameraControls.moveTo(0, 2.65, 0, false);
+  //   setIsCameraMoved(true);
+  // }, [cameraControls]);
 
   // #region INITIAL ANIMATION
   useEffect(() => {
