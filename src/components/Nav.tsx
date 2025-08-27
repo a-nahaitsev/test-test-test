@@ -15,19 +15,24 @@ const Nav = () => {
               A
             </a>
           </li>
-          <li>
+          {/* <li>
             <a href="/b" className="link-styled">
               B
             </a>
-          </li>
+          </li> */}
           <li>
             <a href="/c" className="link-styled">
-              C
+              Lenis
             </a>
           </li>
           <li>
             <a href="/d" className="link-styled">
-              D
+              ScrollSmoother
+            </a>
+          </li>
+          <li>
+            <a href="/e" className="link-styled">
+              Default
             </a>
           </li>
         </ul>
