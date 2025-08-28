@@ -28,10 +28,13 @@ export default function Home() {
   const lenisRef = useRef<any>(null);
 
   useEffect(() => {
-    addEffect((t) => {
-      ScrollTrigger.update();
-      return lenisRef.current?.lenis?.raf(t);
-    });
+    function update(time: number) {
+      lenisRef.current?.lenis?.raf(time * 1000);
+    }
+
+    gsap.ticker.add(update);
+
+    return () => gsap.ticker.remove(update);
   }, []);
 
   return (
