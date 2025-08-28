@@ -139,8 +139,7 @@ nav.nav-wrapper {
   margin: 0;
   width: 100%;
   min-width: 320px;
-  height: 48px;
-  max-height: 44px;
+  min-height: 48px;
   font-size: 17px;
   background-color: #f2f2f2;
 }
@@ -155,12 +154,12 @@ nav .nav-content {
 
 nav .list-styled {
   cursor: default;
-  margin: 0 -9px;
   width: auto;
-  height: 44px;
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
-  gap: 30px;
+  column-gap: 30px;
+  row-gap: 10px;
   align-items: center;
   justify-content: center;
 }

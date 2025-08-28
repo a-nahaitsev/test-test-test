@@ -2,6 +2,7 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const Nav = () => {
   const pathname = usePathname();
@@ -17,49 +18,65 @@ const Nav = () => {
       <div className="nav-content">
         <ul className="list-styled">
           <li>
-            <a
+            <Link
               href="/"
               className={`link-styled ${isActive("/") ? "active" : ""}`}
             >
               Home
-            </a>
+            </Link>
           </li>
           {/* <li>
-            <a
+            <Link
               href="/a"
               className={`link-styled ${isActive("/a") ? "active" : ""}`}
             >
               A
-            </a>
+            </Link>
           </li> */}
           {/* <li>
-            <a href="/b" className="link-styled">
+            <Link href="/b" className="link-styled">
               B
-            </a>
+            </Link>
           </li> */}
           <li>
-            <a
+            <Link
               href="/c"
               className={`link-styled ${isActive("/c") ? "active" : ""}`}
             >
               Lenis
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/d"
               className={`link-styled ${isActive("/d") ? "active" : ""}`}
             >
               ScrollSmoother
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/e"
               className={`link-styled ${isActive("/e") ? "active" : ""}`}
             >
               Default
-            </a>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/f"
+              className={`link-styled ${isActive("/f") ? "active" : ""}`}
+            >
+              Lenis (w/o gyro)
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/g"
+              className={`link-styled ${isActive("/g") ? "active" : ""}`}
+            >
+              ScrollSmoother (w/o gyro)
+            </Link>
           </li>
         </ul>
       </div>
