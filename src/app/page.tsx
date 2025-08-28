@@ -8,7 +8,7 @@ import ViewCanvas from "@/components/ViewCanvas";
 export default function Home() {
   return (
     <>
-      <ViewCanvas
+      {/* <ViewCanvas
         style={{
           position: "fixed",
           top: 0,
@@ -17,12 +17,12 @@ export default function Home() {
           height: "100vh",
         }}
       />
-      <ScrollSmootherWrapper>
+      <ScrollSmootherWrapper> */}
         <Nav />
-        <Jumbotron />
+        {/* <Jumbotron />
         <SoundSection />
         <DisplaySection />
-      </ScrollSmootherWrapper>
+      </ScrollSmootherWrapper>  */}
     </>
   );
 }

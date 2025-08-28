@@ -175,6 +175,12 @@ nav .link-styled {
   justify-content: center;
   height: 44px;
   color: #000000cc;
+  transition: all 0.3s ease;
+}
+
+nav .link-styled.active {
+  font-weight: 700;
+  color: #0071e3;
 }
 
 .jumbotron-section.wrapper {
